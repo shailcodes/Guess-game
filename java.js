@@ -18,6 +18,9 @@ const message = document.querySelector(".message");
 const mess = document.querySelector(".msg p1");
 const attempts = document.querySelector(".attempt");
 const winSound = new Audio("sound.mp3");
+const bgMusic = new Audio("music.mp3");
+bgMusic.loop = true;
+bgMusic.volume = 0.3;
 
 
 
@@ -31,6 +34,9 @@ let attempt = 0;
  
     button1.addEventListener ("click" , () =>{
         console.log("hi");
+     
+    if(bgMusic.paused){
+   bgMusic.play()
 
 
 
@@ -60,6 +66,9 @@ let attempt = 0;
                
                 attempts.innerText = "Game over";
                 button1.disabled = true;
+                winSound.play();
+                launchConfetti();
+            
             }
 
              if (attempt === 4){
@@ -116,21 +125,6 @@ const attempts = document.querySelector(".attempt");
 
 
 
-let compChoice = Math.floor(Math.random() * 100) + 1;
-
-let maxAttempt = 5;
-console.log(compChoice);
-let attempt = 0;
-const bgMusic = new Audio("music.mp3");
-bgMusic.loop = true;
-bgMusic.volume = 0.3;
-
-
-button1.addEventListener("click", () => {
-
-    if(bgMusic.paused){
-   bgMusic.play();
-}
 
 
 
@@ -152,3 +146,4 @@ function launchConfetti(){
    }
 
 }
+
